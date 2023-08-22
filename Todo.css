@@ -1,0 +1,185 @@
+.todo-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-input {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.task-input input {
+  flex-grow: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.task-input button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color:  #ff8080;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.task-list li.completed {
+  background-color: #f0f0f0;
+  text-decoration: line-through;
+}
+
+.task-list li.completed span {
+  opacity: 0.7;
+}
+
+.task-list li span {
+  cursor: pointer;
+}
+
+.task-list li button {
+  padding: 3px 8px;
+  background-color: #ff8080;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.task-list li button.complete-button {
+  background-color: #80ff80;
+  color: #333;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer button {
+  background-color: #ff4646;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.footer button:hover {
+  background-color: #e63939;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .todo-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  
+}
+
+/* Medium screens */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .todo-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  
+}
+
+/* Large screens */
+@media (min-width: 1201px) {
+  .todo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+ 
+}
+
+
+
+.filter-container {
+  display: flex;
+  justify-content: space-between; /* Distribute buttons evenly within the container */
+  align-items: center; /* Center-align items vertically */
+  margin-top: 10px;
+  background-color: #f0f0f0; /* Background color of the rectangle */
+  padding: 5px 10px; /* Add padding to the container */
+  border-radius: 5px; /* Rounded corners for the rectangle */
+}
+
+.filter-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+.filter-button.active {
+  background-color: #007bff; /* Background color for the active button */
+  color: #fff; /* Text color for the active button */
+  border-radius: 5px; /* Rounded corners for the active button */
+}
+
+.theme-toggle-button-container {
+  position: absolute;
+  top: 60px;
+  right: 90px;
+  
+}
+
+
+.theme-toggle-button {
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #333;
+  font-size: 14px;
+}
+
+/*  Light Theme */
+.todo-container.light {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/*  Dark Theme */
+.todo-container.dark {
+  background-color: #333;
+  color: #f0f0f0;
+}
