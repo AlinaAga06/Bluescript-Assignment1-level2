@@ -1,0 +1,6 @@
+useEffect(() => {
+  const storedTasks = Json.parse(localStorage.getItem("tasks"));
+  if (storedTasks) {
+    setTasks(storedTasks);
+  }
+}, []);
