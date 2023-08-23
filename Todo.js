@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Todo.css";
 import { useTheme } from "./Context";
 
@@ -7,6 +7,19 @@ const Todo = () => {
   const [newTask, setNewTask] = useState("");
   const [filter, setFilter] = useState("all");
   const { theme, toggleTheme } = useTheme();
+
+  // Load tasks from local storage when component mounts
+  useEffect(() => {
+    const storedTasks = Json.parse(localStorage.getItem("tasks"));
+    if (storedTasks) {
+      setTasks(storedTasks);
+    }
+  }, []);
+
+  // Save tasks to local storage whenever tasks change
+  useEffect(() => {
+    localStorage.setItem("tasks", Json.stringify(tasks));
+  }, [tasks]);
 
   const addTask = () => {
     if (newTask.trim() !== "") {
@@ -40,21 +53,18 @@ const Todo = () => {
     } else if (filter === "completed") {
       return task.completed;
     }
-    return true; 
+    return true;
   });
 
   return (
-    <div className="todo-container">
-      
-      <div className={`todo-container ${theme === "dark" ? "dark" : "light"}`}>  
+    <div className={`todo-container ${theme === "dark" ? "dark" : "light"}`}>
       <div className="todo-content">
         <h1>TODO</h1>
         <div className="theme-toggle-button-container">
           <button className="theme-toggle-button" onClick={toggleTheme}>
-            {theme === "light" ? "light" : "Dark"} Mode
+            {theme === "light" ? "Light" : "Dark"} Mode
           </button>
         </div>
-       
         <div className="task-input">
           <input
             type="text"
@@ -78,7 +88,9 @@ const Todo = () => {
             Active
           </button>
           <button
-            className={`filter-button ${filter === "completed" ? "active" : ""}`}
+            className={`filter-button ${
+              filter === "completed" ? "active" : ""
+            }`}
             onClick={() => setFilter("completed")}
           >
             Completed
@@ -105,9 +117,6 @@ const Todo = () => {
         </div>
       </div>
     </div>
-</div>
-    
- 
   );
 };
 
