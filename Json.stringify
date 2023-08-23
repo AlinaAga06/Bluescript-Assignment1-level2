@@ -1,0 +1,8 @@
+// Saving to local storage
+localStorage.setItem("tasks", JSON.stringify(tasks));
+
+// Retrieving from local storage
+const storedTasks = Json.parse(localStorage.getItem("tasks"));
+if (storedTasks) {
+  setTasks(storedTasks);
+}
